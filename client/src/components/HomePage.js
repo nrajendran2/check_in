@@ -4,7 +4,7 @@ import LogInComponent from "./LogInComponent";
 
 
 const LandingWrap = styled.div`
-  background-image: url("https://media.bizj.us/view/img/3972271/skyline-of-atlanta*1024xx1600-900-0-1384.jpg");
+  background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1511281122%2Fflight-landing-INBNDCHECK1117.jpg%3Fitok%3DrlElho3R&w=700&q=85");
   background-size: cover;
   z-index: -9;
   position: fixed;

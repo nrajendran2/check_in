@@ -5,6 +5,18 @@ import { injectGlobal } from "styled-components";
 import './App.css';
 import axios from "axios";
 import HomePage from "./components/HomePage";
+import Navbar from "./components/Navbar";
+
+injectGlobal`
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+*, :after, :before {
+    box-sizing: inherit;
+}
+html, body {
+        height: 100%;
+        margin: 0;
+      }
+`;
 
 class App extends Component {
 state = {
@@ -49,8 +61,16 @@ state = {
     return (
       <Router>
       <div className="App">
+       <Navbar
+            {...this.props}
+            cities={this.state.cities}
+            cityname={this.props.city_name}
+            toggleShowLogin={this.toggleShowLogin}
+            showLogin={this.state.showLogin}
+          />
       <Switch>
  <Route exact path="/" render={HomePageWrapper} />
+ 
     
 
 
