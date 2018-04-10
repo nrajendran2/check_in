@@ -1,5 +1,5 @@
 class Api::BagsController < ApplicationController
-    
+    before_action :def_post, only: [:show, :update, :destroy]
 
     def index 
         @bags = User.find(params[:user_id]).bags.order(id: :desc)
@@ -10,7 +10,7 @@ class Api::BagsController < ApplicationController
             
             def show
                 
-                @bag_name = User.find(params[:user_id]).name
+                @bag_name = User.find(params[:user_id])
         render json: {
            
             bag_name: @bag_name
@@ -28,14 +28,19 @@ class Api::BagsController < ApplicationController
             end 
         
             def update
+                @bag.update!(bag_params)
+        render json: {
+            bag: @bag
+        }
                 
             end 
         
             def destroy 
+                @bag.destroy
             end 
 
             def def_post
-                @post = Post.find(params[:id])
+                @bag = Bag.find(params[:id])
           end
         
         
