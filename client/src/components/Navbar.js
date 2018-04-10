@@ -6,7 +6,7 @@ import { Button, Dropdown, Menu } from "semantic-ui-react";
 const NavWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: blueviolet;
+  background-color: black;
   box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.8);
   align-items: center;
   z-index: 1000;
@@ -23,7 +23,7 @@ const LogoWrap = styled.div`
   justify-content: space-around;
   margin-left: 10vw;
   h1 {
-    font-family: "Permanent Marker", cursive;
+    font-family: 'Faster One', cursive;
     font-size: 48px;
     @media (max-width: 510px) {
       font-size: 40px;
@@ -76,12 +76,12 @@ class Navbar extends Component {
       <NavWrap>
         <LogoWrap className="media">
           <Link to="/">
-            <h1>Baggage Express</h1>
+            <h1>Baggage Expre$$</h1>
           </Link>
           <h1>{!this.props.city_name ? null : this.props.city_name}</h1>
         </LogoWrap>
         <NavLinkWrap>
-          <Button fluid color="purple" className="inner-nav">
+          <Button fluid color="purple=" className="inner-nav">
             <Link className="white-letter" to="/">
               Login
             </Link>

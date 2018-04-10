@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Form, Button, Icon, Card } from "semantic-ui-react";
 
 const OverWrap = styled.div`
-  background-image: url("https://media.bizj.us/view/img/3972271/skyline-of-atlanta*1024xx1600-900-0-1384.jpg");
+  background-image: url("http://infinite-woodland-5276.herokuapp.com/assets/demo/signin-bg-3.jpg");
   background-size: cover;
   z-index: -9;
   position: fixed;

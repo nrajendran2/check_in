@@ -42,7 +42,7 @@ class HomePage extends Component {
           <LandingWrap>
             <div className="letter-box">
               <h1>
-                Welcome to <span>Vagabond</span>
+                Welcome to <span>Baggage Expre$$</span>
               </h1>
             </div>
           </LandingWrap>

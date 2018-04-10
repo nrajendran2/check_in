@@ -8,7 +8,7 @@ import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
 
 injectGlobal`
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Faster+One'););
 *, :after, :before {
     box-sizing: inherit;
 }
