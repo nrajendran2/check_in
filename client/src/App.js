@@ -6,6 +6,8 @@ import './App.css';
 import axios from "axios";
 import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
+import UsersView from "./components/UsersView";
+import ShowView from "./components/ShowView";
 
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Faster+One'););
@@ -58,6 +60,7 @@ state = {
 
 
 
+
     return (
       <Router>
       <div className="App">
@@ -70,6 +73,9 @@ state = {
           />
       <Switch>
  <Route exact path="/" render={HomePageWrapper} />
+  <Route exact path="/users" component={UsersView} />
+  <Route exact path="/users/:id" component={ShowView} />
+
  
     
 

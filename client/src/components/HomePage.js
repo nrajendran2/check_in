@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import LogInComponent from "./LogInComponent";
+import { Link } from "react-router-dom";
 
 
 const LandingWrap = styled.div`
@@ -44,7 +45,9 @@ class HomePage extends Component {
               <h1>
                 Welcome to <span>Baggage Expre$$</span>
               </h1>
+             
             </div>
+    <Link to="/users/">Home</Link>
           </LandingWrap>
         )}
                 

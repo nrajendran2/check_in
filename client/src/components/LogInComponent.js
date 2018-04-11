@@ -60,39 +60,28 @@ class LogInComponent extends Component {
               <Form onSubmit={this.createNewPost}>
                 <Form.Input
                   className="inputs"
-                  name="first_name"
+                  name="username"
                   onChange=""
                   type="text"
-                  placeholder="first name"
+                  placeholder="username"
                   value=""
                   required
                 />
                 <Form.Input
                   className="inputs"
-                  name="last_name"
+                  name="name"
                   onChange=""
                   type="text"
-                  placeholder="last name"
+                  placeholder="name"
                   value=""
                   required
                 />
                 <Form.Input
                   className="inputs"
                   placeholder="Photo Url"
-                  name="img"
+                  name="photo_url"
                   onChange=""
                   value=""
-                />
-
-                <Form.Input
-                  large
-                  className="inputs"
-                  name="email"
-                  onChange=""
-                  placeholder="EMAIL"
-                  type="text"
-                  value=""
-                  required
                 />
 
                 <ButtonWrap>

@@ -23,7 +23,7 @@ const LogoWrap = styled.div`
   justify-content: space-around;
   margin-left: 10vw;
   h1 {
-    font-family: 'Faster One', cursive;
+     font-family: 'Faster One', cursive;
     font-size: 48px;
     @media (max-width: 510px) {
       font-size: 40px;
