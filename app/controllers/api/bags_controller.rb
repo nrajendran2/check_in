@@ -3,7 +3,7 @@ class Api::BagsController < ApplicationController
 
     def index 
         @bags = User.find(params[:user_id]).bags.order(id: :desc)
-        render json: @bags
+        render json: @bags, include: [:flight]
        
             end 
         

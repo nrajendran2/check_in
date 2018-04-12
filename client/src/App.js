@@ -22,14 +22,13 @@ html, body {
 
 class App extends Component {
 state = {
-    cities: [],
-    cityname: "",
+  
     showLogin: false,
     error: ""
   };
 
   componentDidMount() {
-    this.getAllCities();
+    // this.getAllCities();
   }
 
   toggleShowLogin = () => {
@@ -38,19 +37,19 @@ state = {
     });
   };
 
-  getAllCities = async () => {
-    try {
-      const response = await axios.get("/api/cities");
-      console.log(response.data);
-      this.setState({
-        cities: response.data.cities,
-        cityname: response.data.cityname
-      });
-    } catch (err) {
-      console.log(err);
-      this.setState({ err: err.message });
-    }
-  };
+  // getAllCities = async () => {
+  //   try {
+  //     const response = await axios.get("/api/cities");
+  //     console.log(response.data);
+  //     this.setState({
+  //       cities: response.data.cities,
+  //       cityname: response.data.cityname
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //     this.setState({ err: err.message });
+  //   }
+  // };
 
   render() {
 
@@ -66,8 +65,6 @@ state = {
       <div className="App">
        <Navbar
             {...this.props}
-            cities={this.state.cities}
-            cityname={this.props.city_name}
             toggleShowLogin={this.toggleShowLogin}
             showLogin={this.state.showLogin}
           />

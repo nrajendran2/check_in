@@ -31,8 +31,9 @@ younginbag = Bag.create!(name: 'Youngin' , weight: 44,  fragile: 'false', user_i
 
 
 
-Flight.create!(airline: 'American Airl;ines' , confirmation_id: 'W45SCF494', bag_id: monabag.id )
+Flight.create!(airline: 'American Airlines' , confirmation_id: 'W45SCF494', bag_id: monabag.id )
 Flight.create!(airline: 'Spirit' , confirmation_id: 'W3XD$D3DAS',bag_id: jaredbag.id )
 Flight.create!(airline: 'Frontier' , confirmation_id: 'W3DVS2S3',bag_id: jamesbag.id)
 Flight.create!(airline: 'Delta' , confirmation_id: 'W3XD$D3DAS',bag_id: younginbag.id )
 
+                                                                          

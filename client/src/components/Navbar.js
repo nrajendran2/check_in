@@ -92,13 +92,6 @@ class Navbar extends Component {
           <Menu color="purple" compact>
             <Dropdown button item text="Cities" color="purple">
               <Dropdown.Menu color="purple">
-                {this.props.cities.map(city => {
-                  return (
-                    <Dropdown.Item as={Link} to={`/cities/${city.id}`}>
-                      {city.name}
-                    </Dropdown.Item>
-                  );
-                })}
               </Dropdown.Menu>
             </Dropdown>
           </Menu>
