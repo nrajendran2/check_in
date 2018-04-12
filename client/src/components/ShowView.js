@@ -7,7 +7,7 @@ class ShowView extends Component {
     state = {
         users: {},
         bags: ['hkhkhk'],
-        flights: []
+        flights: {}
     };
 
     async componentDidMount() {
@@ -60,8 +60,7 @@ class ShowView extends Component {
                                 <h1>Weight: {bag.weight}lbs</h1>
                                 <h1>Bag ID: {bag.name}</h1>
                                 <h1>Fragile: {bag.fragile}</h1>
-                                <h1>Airlline:{this.state.flights.airline}</h1>
-                                <h1>Confirmation ID: {this.state.flights.confirmation_id}</h1>
+                                
                                 {/* <h1>Airline:{one.airline}</h1> */}
                             
 
@@ -71,7 +70,8 @@ class ShowView extends Component {
                     })}
 
                 {/* <h1>{oneFlight.airline}</h1> */}
-    <NewBagPost userId={this.props.match.params.id}/>
+    <NewBagPost userId={this.props.match.params.id} bags = {this.state.bags} getAllBags={this.getAllBags} />
+
             </div>
         );
     }

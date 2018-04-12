@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Form, Button, TextArea, Icon, Card} from "semantic-ui-react";
 import styled from "styled-components";
 import axios from 'axios'
+
 class NewBagPost extends Component {
     state = {
         new: {
@@ -24,25 +25,31 @@ class NewBagPost extends Component {
 
     createNewBag = async event => {
         event.preventDefault();
+        let letbagId = this.props.bags.map((bag) => {
+            return bag.id
+        })
+        const bagId = letbagId[0]
+        console.log(bagId)
         const bagload = {
-            bag: this.state.new.bagname,
+            name: this.state.new.bagname,
             weight: this.state.new.weight,
-            fragile: this.state.new.fragile
-        };
-
-        const flightload = {
+            fragile: this.state.new.fragile,
             airline: this.state.new.airline,
             confirmationId: this.state.new.confirmationId
-        }
+            
 
-        await axios.post(`api/users/${this.props.userId}/bags`, bagload)
-
+        };
+    
+        await axios.post(`/api/users/${this.props.userId}/bags/`, bagload)
+        // await axios.post(`/api/users/${this.props.userId}/bags/${bagId}/flights`, flightload)
+        this.props.getAllBags()
+        // this.props.getAllBags()
     }
 
     render() {
         return (
             <div>
-                <Form onSubmit={this.createNewPost}>
+                <Form onSubmit={this.createNewBag}>
                     <Form.Input
                         className="inputs"
                         name="bagname"
@@ -58,19 +65,21 @@ class NewBagPost extends Component {
                         onChange={this.handleChange}
                         value={this.state.weight}/>
 
-                    <Form.Input
+                    { <Form.Input
                         className="input"
                         placeholder="Enter airline"
                         name="airline"
                         onChange={this.handleChange}
-                        value={this.state.airline}/>
-                    <Form.Input
+                        value={this.state.airline}/> }
+                    { <Form.Input
                         className="input"
                         placeholder="confirmation Id"
                         name="confirmationId"
                         onChange={this.handleChange}
-                        value={this.state.confirmationId}/> {/* <ButtonWrap>
-                <Button animated color="green" type="submit">
+                        value={this.state.confirmationId}/>}
+                        
+                        {/* <ButtonWrap> */}
+                {/* <Button animated color="green" type="submit">
                   <Button.Content visible>Post Comment</Button.Content>
                   <Button.Content hidden>
                     <Icon name="comments" />
@@ -78,7 +87,7 @@ class NewBagPost extends Component {
                 </Button>
               </ButtonWrap> */}
               <button>Submit</button>
-                </Form>
+                </Form> 
 
             </div>
         );
