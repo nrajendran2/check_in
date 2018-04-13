@@ -6,7 +6,8 @@ import axios from 'axios'
 
 const FormWrapper = styled.div`
 font-size: 10px;
-padding: 20px;
+padding: 30px;
+
 `
 
 

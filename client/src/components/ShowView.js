@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import NewBagPost from './NewBagPost'
 import EditBag from './EditBag'
 
+
 class ShowView extends Component {
     state = {
         users: {},
@@ -58,8 +59,8 @@ class ShowView extends Component {
     // const updateBaggage = this.state.bags.find((bag) => {         if (id == .id)
     // {             return definition.count++         } getAllFlights = async() =>
     // {     try {         const userId = this.props.match.params.id        .state
-    //     .bags             .map((bag) => { return bag.id             }) const
-    // newbagId = bagId[0]         const response = await
+    // .bags             .map((bag) => { return bag.id             }) const newbagId
+    // = bagId[0]         const response = await
     // axios.get(`/api/users/${userId}/bags/${newbagId}/flights`)
     // this.setState({flights: response.data});     } catch (err) {
     // console.log(err);         this.setState({err: err.message});     } }
@@ -75,43 +76,58 @@ class ShowView extends Component {
 
     render() {
 
-        const bags = this.state.bags.map((bag) => {
-            console.log("FRAGILE", bag.fragile)
-            if (!bag){
-                return <div></div>
-            }
-            return (
-                <div>
-                    <h1>Weight: {bag.weight}lbs</h1>
-                    <h1>Bag ID: {bag.name}</h1>
-                    <h1>Fragile: {bag.fragile ? bag.fragile.toString() : "false"}</h1>
+        const bags = this
+            .state
+            .bags
+            .map((bag) => {
+                console.log("FRAGILE", bag.fragile)
+                if (!bag) {
+                    return <div></div>
+                }
+                return (
+                    
 
-                    {/* <h1>Airline:{one.airline}</h1> */}
-                    <button onClick={() => this.deleteBag(bag.id)}>Delete</button>
-                    <button onClick={() => this.toggleEditForm(bag.id)}>Edit Bag</button>
+                
+                    <div>
 
-                    {this.state.showeditform
-                        ? <EditBag userId={this.props.match.params.id} id={bag.id} bag={bag}/>
-                        : null}
-                </div>
-            )
+                        <h1>Weight: {bag.weight}lbs</h1>
+                        <h1>Bag ID: {bag.name}</h1>
+                        <h1>Fragile: {bag.fragile
 
-        })
+                                    ? bag
+                                    .fragile
+                                    .toString()
+                                : "false"}</h1>
 
-    return (
-        <div>
+                        {/* <h1>Airline:{one.airline}</h1> */}
+                        <button onClick={() => this.deleteBag(bag.id)}>Delete</button>
+                        <button onClick={() => this.toggleEditForm(bag.id)}>Edit Bag</button>
 
-            {bags}
+                        {this.state.showeditform
+                            ? <EditBag userId={this.props.match.params.id} id={bag.id} bag={bag}/>
+                            : null}
+                    </div>
+                   
+                )
 
-            {/* <h1>{oneFlight.airline}</h1> */}
-            <NewBagPost
-                userId={this.props.match.params.id}
-                bags={this.state.bags}
-                getAllBags={this.getAllBags}/>
-            <div></div>
-        </div>
-    );
-}
+            })
+
+        return (
+            <div>
+
+                {bags}
+
+                {/* <h1>{oneFlight.airline}</h1> */}
+                <NewBagPost
+                    userId={this.props.match.params.id}
+                    bags={this.state.bags}
+                    getAllBags={this.getAllBags}/>
+                <div></div>
+
+            </div>
+        );
+
+    }
 }
 
 export default ShowView;
