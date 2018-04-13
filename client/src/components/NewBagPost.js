@@ -3,6 +3,15 @@ import {Form, Button, TextArea, Icon, Card} from "semantic-ui-react";
 import styled from "styled-components";
 import axios from 'axios'
 
+
+const FormWrapper = styled.div`
+font-size: 10px;
+padding: 20px;
+`
+
+
+
+
 class NewBagPost extends Component {
     state = {
         new: {
@@ -49,6 +58,7 @@ class NewBagPost extends Component {
     render() {
         return (
             <div>
+                <FormWrapper>
                 <Form onSubmit={this.createNewBag}>
                     <Form.Input
                         className="inputs"
@@ -88,6 +98,7 @@ class NewBagPost extends Component {
               </ButtonWrap> */}
               <button>Submit</button>
                 </Form> 
+                </FormWrapper>
 
             </div>
         );
