@@ -18,16 +18,19 @@ class Api::BagsController < ApplicationController
             end 
         
             def create 
-                params
+             
                 puts params[:airline]
-
                 puts params[:name]
                 puts params[:weight]
-                puts parmas[:fragile]
+                puts params[:fragile]
+            
                 @user = User.find(params[:user_id])
 
                 @bag = @user.bags.create(bag_params)
-                @flight = @user.flights.create(airline: params[:airline], confirmationId: params[:confirmationId])
+                @flight = Flight.create!(
+                    airline: params[:airline], 
+                    confirmation_id: params[:confirmationId], 
+                    bag_id: @bag.id)
 
                 render json: {
                     bag: @bag
