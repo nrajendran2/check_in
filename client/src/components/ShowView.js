@@ -8,7 +8,7 @@ import EditBag from './EditBag'
 class ShowView extends Component {
     state = {
         users: {},
-        bags: ['hkhkhk'],
+        bags: [],
         flights: {},
         showeditform: false
     };
@@ -58,7 +58,7 @@ class ShowView extends Component {
     // const updateBaggage = this.state.bags.find((bag) => {         if (id == .id)
     // {             return definition.count++         } getAllFlights = async() =>
     // {     try {         const userId = this.props.match.params.id        .state
-    //       .bags             .map((bag) => { return bag.id             }) const
+    //     .bags             .map((bag) => { return bag.id             }) const
     // newbagId = bagId[0]         const response = await
     // axios.get(`/api/users/${userId}/bags/${newbagId}/flights`)
     // this.setState({flights: response.data});     } catch (err) {
@@ -75,42 +75,43 @@ class ShowView extends Component {
 
     render() {
 
-        return (
-            <div>
-                {this
-                    .state
-                    .bags
-                    .map((bag) => {
-                        return (
-                            <div>
+        const bags = this.state.bags.map((bag) => {
+            console.log("FRAGILE", bag.fragile)
+            if (!bag){
+                return <div></div>
+            }
+            return (
+                <div>
+                    <h1>Weight: {bag.weight}lbs</h1>
+                    <h1>Bag ID: {bag.name}</h1>
+                    <h1>Fragile: {bag.fragile ? bag.fragile.toString() : "false"}</h1>
 
-                                <h1>Weight: {bag.weight}lbs</h1>
-                                <h1>Bag ID: {bag.name}</h1>
-                                <h1>Fragile: {bag.fragile}</h1>
+                    {/* <h1>Airline:{one.airline}</h1> */}
+                    <button onClick={() => this.deleteBag(bag.id)}>Delete</button>
+                    <button onClick={() => this.toggleEditForm(bag.id)}>Edit Bag</button>
 
-                                {/* <h1>Airline:{one.airline}</h1> */}
-                                <button onClick={() => this.deleteBag(bag.id)}>Delete</button>
-                                <button onClick={()=> this.toggleEditForm(bag.id)}>Edit Bag</button>
+                    {this.state.showeditform
+                        ? <EditBag userId={this.props.match.params.id} id={bag.id} bag={bag}/>
+                        : null}
+                </div>
+            )
 
-                                {this.state.showeditform
-                                    ? <EditBag  userId={this.props.match.params.id} id={bag.id} bag={bag}/>
-                                    : null
+        })
+
+    return (
+        <div>
+
+            {bags}
+
+            {/* <h1>{oneFlight.airline}</h1> */}
+            <NewBagPost
+                userId={this.props.match.params.id}
+                bags={this.state.bags}
+                getAllBags={this.getAllBags}/>
+            <div></div>
+        </div>
+    );
 }
-                            </div>
-
-                        )
-
-                    })}
-
-                {/* <h1>{oneFlight.airline}</h1> */}
-                <NewBagPost
-                    userId={this.props.match.params.id}
-                    bags={this.state.bags}
-                    getAllBags={this.getAllBags}/>
-                <div></div>
-            </div>
-        );
-    }
 }
 
 export default ShowView;
