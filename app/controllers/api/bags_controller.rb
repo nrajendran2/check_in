@@ -9,7 +9,9 @@ class Api::BagsController < ApplicationController
         
             def show
                 
-                @bag_name = User.find(params[:user_id])
+                @user = User.find(params[:user_id])
+                @bag_name = @user.bags.find(params[:id])
+
         render json: {
            
             bag_name: @bag_name

@@ -13,7 +13,7 @@ class EditBag extends Component {
     }
  
     getBag = async () => {
-        const res = await axios.get(`/api/users/${this.props.userId}/bags/${this.props.id}`)
+        const res = await axios.get(`/api/users/${this.props.userId}/bags/${this.pps.id}`)
         this.setState({
             bag: res.data.bag_name
         })
