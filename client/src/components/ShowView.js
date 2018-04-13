@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import NewBagPost from './NewBagPost'
+
 class ShowView extends Component {
     state = {
         users: {},
@@ -12,7 +13,7 @@ class ShowView extends Component {
 
     async componentDidMount() {
         await this.getAllBags();
-        await this.getAllFlights();
+        // await this.getAllFlights();
 
     }
 
@@ -24,53 +25,100 @@ class ShowView extends Component {
             console.log("Finished API call", response.data);
             this.setState({bags: response.data});
         } catch (err) {
+
             console.log(err);
             this.setState({err: err.message});
         }
     };
 
-    getAllFlights = async() => {
-        try {
-            const userId = this.props.match.params.id
-            const bagId = this.state.bags.map((bag) => {
-                    return bag.id
-                
-                })
-                const newbagId = bagId[0]
-            console.log(bagId)
-            console.log(newbagId)
-            const response = await axios.get(`/api/users/${userId}/bags/${newbagId}/flights`)
-            console.log("finishedAPi Call", response.data);
-            this.setState({flights: response.data});
-        } catch (err) {
-            console.log(err);
-            this.setState({err: err.message});
-        }
+    addToBags = async (id) => {
+        const userId = this.props.match.params.id
+        const updateBags = this.state.bags.find((bag) => {
+            if (id == bag.id) {
+                return bag.count++
+            }
+        })
+        const res = await axios.patch(`/api/users/${userId}/bags/${id}`,updateBags)
+        console.log(res.data)
+        this.setState({
+            bags:[]
+        })
+    }
 
+    // addToCounter = async (id) => {
+    //     const bagId = this.props.match.params.id
+    //     const updateBaggage = this.state.bags.find((bag) => {
+    //         if (id == .id) {
+    //             return definition.count++
+    //         }
+
+ 
+
+    // getAllFlights = async() => {
+    //     try {
+    //         const userId = this.props.match.params.id
+    //             .state
+    //             .bags
+    //             .map((bag) => {
+    //                 return bag.id
+    //             })
+    //         const newbagId = bagId[0]
+    //         const response = await axios.get(`/api/users/${userId}/bags/${newbagId}/flights`)
+    //         this.setState({flights: response.data});
+    //     } catch (err) {
+    //         console.log(err);
+    //         this.setState({err: err.message});
+    //     }
+
+    // }
+
+    // deleteFromBags = async (id) => {
+    //     const bagId = this.props.match.params.id
+    //     const updateBaggage = this.state.bag.find((bag) => {
+    //         if (bag == bag.id) {
+    //             return bag.count--
+    //         }
+    //     })
+    // }
+
+    
+
+
+    deleteBag = async (id) => {
+        const userId = this.props.match.params.id
+        const res = await axios.delete(`/api/users/${userId}/bags/${id}`)
+        this.getAllBags()
     }
 
     render() {
 
         return (
             <div>
-                {this.state.bags.map((bag) => {
+                {this
+                    .state
+                    .bags
+                    .map((bag) => {
                         return (
                             <div>
 
                                 <h1>Weight: {bag.weight}lbs</h1>
                                 <h1>Bag ID: {bag.name}</h1>
                                 <h1>Fragile: {bag.fragile}</h1>
-                                
-                                {/* <h1>Airline:{one.airline}</h1> */}
-                            
 
+                                {/* <h1>Airline:{one.airline}</h1> */}
+                                <button onClick={()=>this.deleteBag(bag.id)}>Delete</button>
+                                <button Onclick={()=> this.addToBags(bag.id)}>Edit Bag</button>
                             </div>
 
                         )
+
                     })}
 
                 {/* <h1>{oneFlight.airline}</h1> */}
-    <NewBagPost userId={this.props.match.params.id} bags = {this.state.bags} getAllBags={this.getAllBags} />
+                <NewBagPost
+                    userId={this.props.match.params.id}
+                    bags={this.state.bags}
+                    getAllBags={this.getAllBags}/>
 
             </div>
         );
