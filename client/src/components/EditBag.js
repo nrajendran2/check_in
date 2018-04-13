@@ -5,17 +5,23 @@ import axios from 'axios'
 class EditBag extends Component {
 
     state = {
-        bag: {
-            bagname: '',
-            weight:'',
-            fragile: ''
-
-        }
+        bag: {}
     }
 
-  
+    componentDidMount() {
+        this.getBag()
+    }
+ 
+    getBag = async () => {
+        const res = await axios.get(`/api/users/${this.props.userId}/bags/${this.props.id}`)
+        this.setState({
+            bag: res.data.bag_name
+        })
+
+    }
+ 
     handleChange = (event) => {
-        const editState = { ...this.state.bag}
+        const editState = {...this.state.bag}
         editState[event.target.name] = event.target.value
 
         this.setState({ bag: editState })
@@ -24,11 +30,13 @@ class EditBag extends Component {
     submitNewBag = (event) => {
         event.preventDefault()
         const payload = {
-            bagname: this.state.user.bagname,
-            weight: this.state.user.weight,
-            fragile: this.state.user.fragile
+            bagname: this.state.bag.bagname,
+            weight: this.state.bag.weight,
+            fragile: this.state.bag.fragile
 
         }
+
+
 
         axios.patch(`/api/users/${this.props.userId}/bags/${this.props.id}`, payload).then((res) => {
              console.log(res.data)
@@ -41,7 +49,7 @@ class EditBag extends Component {
     render() {
         return (
             <div>
-                    <form OnSubmit ={this.submitNewBag}>
+                    <form onSubmit ={this.submitNewBag}>
                     <input type ="text" name = "bagname" onChange={this.handleChange} value={this.state.username}/>
 
                      <input type ="text" name = "weight" onChange={this.handleChange} value={this.state.weight}/>

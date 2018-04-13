@@ -93,7 +93,7 @@ class ShowView extends Component {
                                 <button onClick={()=> this.toggleEditForm(bag.id)}>Edit Bag</button>
 
                                 {this.state.showeditform
-                                    ? <EditBag  userId={this.props.match.params} id={bag.id}/>
+                                    ? <EditBag  userId={this.props.match.params.id} id={bag.id} bag={bag}/>
                                     : null
 }
                             </div>
