@@ -48,6 +48,7 @@ class HomePage extends Component {
              
             </div>
     <Link to="/users/">Home</Link>
+    <Link to="/map">Track Bags</Link>
           </LandingWrap>
         )}
                 
