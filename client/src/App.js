@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
 import UsersView from "./components/UsersView";
 import ShowView from "./components/ShowView";
+import MapView from './components/MapView';
 
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Faster+One'););
@@ -72,7 +73,7 @@ state = {
  <Route exact path="/" render={HomePageWrapper} />
   <Route exact path="/users" component={UsersView} />
   <Route exact path="/users/:id" component={ShowView} />
-
+  <Route exact path="/users/map" component={MapView} />
  
     
 
