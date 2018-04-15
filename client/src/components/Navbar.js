@@ -90,10 +90,7 @@ class Navbar extends Component {
             Sign Up
           </Button>
           <Menu color="purple" compact>
-            <Dropdown button item text="Cities" color="purple">
-              <Dropdown.Menu color="purple">
-              </Dropdown.Menu>
-            </Dropdown>
+        
           </Menu>
         </NavLinkWrap>
       </NavWrap>
