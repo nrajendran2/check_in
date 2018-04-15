@@ -123,7 +123,9 @@ class ShowView extends Component {
                     bags={this.state.bags}
                     getAllBags={this.getAllBags}/>
                 <div></div>
-                <Link to="/users/map">Home</Link>
+
+
+                <Link to="/users/map">Track Bags</Link>
 
             </div>
         );
