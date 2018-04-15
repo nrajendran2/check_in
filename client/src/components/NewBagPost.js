@@ -78,16 +78,11 @@ class NewBagPost extends Component {
 
                     { <Form.Input
                         className="input"
-                        placeholder="Enter airline"
-                        name="airline"
+                        placeholder="fragile"
+                        name="fragile"
                         onChange={this.handleChange}
-                        value={this.state.airline}/> }
-                    { <Form.Input
-                        className="input"
-                        placeholder="confirmation Id"
-                        name="confirmationId"
-                        onChange={this.handleChange}
-                        value={this.state.confirmationId}/>}
+                        value={this.state.fragile}/> }
+                    
                         
                         {/* <ButtonWrap> */}
                 {/* <Button animated color="green" type="submit">
