@@ -85,7 +85,7 @@ class ShowView extends Component {
                     return <div></div>
                 }
                 return (
-                    
+
 
                 
                     <div>
@@ -123,6 +123,7 @@ class ShowView extends Component {
                     bags={this.state.bags}
                     getAllBags={this.getAllBags}/>
                 <div></div>
+                <Link to="/users/map">Home</Link>
 
             </div>
         );
