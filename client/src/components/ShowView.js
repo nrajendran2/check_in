@@ -16,20 +16,25 @@ background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2
 
  
 const Background = styled.div`
-/* font-size: 12px; */
+font-size: 14px;
 color: black;
 justify-content:center;
 align-content:center;
 padding: 0, 0, 0, 200px;
+width: 50vw;
+margin-left: 20vw;
 
 
 h1 {
     font-size: 30px;
-   
     padding: 0, 0, 0, 200px;
-    
-
     align-content: center;
+}
+p{
+    font-size: 20px;
+}
+.card-content .grey .lighten-4 {
+    width: 50vw;
 }
 `
 
