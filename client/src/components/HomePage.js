@@ -11,12 +11,13 @@ const LandingWrap = styled.div`
   position: fixed;
   height: 100vh;
   width: 100vw;
+  padding: 40px;
   .letter-box {
     display: flex;
     position: fixed;
-    top: 20vh;
+    top: 40vh;
     color: white;
-    margin: 0 10vw 20vw 50vw;
+    margin: 0 50vw 20vw 50vw;
     background-color: #88888875;
     border-bottom: 1px solid purple;
     border-top: 1px solid purple;
@@ -31,6 +32,12 @@ const LandingWrap = styled.div`
   }
 `;
 
+const Links = styled.div`
+display:flex;
+justify-content: space-around;
+
+
+`
 
 
 class HomePage extends Component {
@@ -47,11 +54,17 @@ class HomePage extends Component {
               </h1>
              
             </div>
-    <Link to="/users/">Home</Link>
-    <Link to="/map">Track Bags</Link>
+
+<Links>
+    <h1><Link to="/users/">Users</Link></h1>
+    <h1><Link to="/map">Track Bags</Link></h1>
+
+    </Links>
+          
+          
           </LandingWrap>
         )}
-                
+               
             </div>
         );
     }
