@@ -18,11 +18,21 @@ background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2
 const Background = styled.div`
 /* font-size: 12px; */
 color: black;
+justify-content:center;
+align-content:center;
+padding: 0, 0, 0, 200px;
+
 
 h1 {
     font-size: 30px;
+   
+    padding: 0, 0, 0, 200px;
+    
+
+    align-content: center;
 }
 `
+
 
 
 
@@ -121,14 +131,27 @@ class ShowView extends Component {
                     <div>
                         <Background>
 
-                        <h1>Weight: {bag.weight}lbs</h1>
-                        <h1>Bag ID: {bag.name}</h1>
-                        <h1>Fragile: {bag.fragile
+                            <div class="card">
+    <div class="card-content">
+      <p> Bag</p>
+    </div>
+    <div class="card-tabs">
+    </div>
+    <div class="card-content grey lighten-4">
+      <div id="test4">Weight: {bag.weight}lbs</div>
+      <div id="test5">Bag ID: {bag.name}</div>
+      <div id="test6">Fragile: {bag.fragile
 
-                                    ? bag
-                                    .fragile
-                                    .toString()
-                                : "false"}</h1>
+? bag
+.fragile
+.toString()
+: "false"}</div>
+    </div>
+  </div>
+
+                        
+                        <h1></h1>
+                        <h1></h1>
 
                         {/* <h1>Airline:{one.airline}</h1> */}
                         <button onClick={() => this.deleteBag(bag.id)}>Delete</button>
@@ -159,7 +182,7 @@ class ShowView extends Component {
                     bags={this.state.bags}
                     getAllBags={this.getAllBags}/>
                 <div></div>
-                <Link to="/map">Track Bags</Link>
+                <h4><Link to="/map">Track Bags</Link></h4>
 
                 
 
