@@ -35,6 +35,7 @@ font-size: 20px;
  display: flex;
 justify-content: space-around; 
  flex-direction: row; 
+ margin-left: 40px;
 `
 const EachProfile = styled.div`
 display: block;
