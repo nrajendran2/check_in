@@ -16,8 +16,12 @@ background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2
 
  
 const Background = styled.div`
-font-size: 8px;
+/* font-size: 12px; */
 color: black;
+
+h1 {
+    font-size: 30px;
+}
 `
 
 
