@@ -15,9 +15,10 @@ const LandingWrap = styled.div`
   .letter-box {
     display: flex;
     position: fixed;
-    top: 40vh;
+    top: 20vh;
     color: white;
-    margin: 0 50vw 20vw 50vw;
+    margin-top:  15vw;
+    margin-left: 20vw;
     background-color: #88888875;
     border-bottom: 1px solid purple;
     border-top: 1px solid purple;
@@ -26,8 +27,9 @@ const LandingWrap = styled.div`
       font-family: "Permanent Marker", cursive;
     }
     @media (max-width: 510px) {
-    top: 36vh;
+    top: 56vh;
     margin: auto;
+
   }
   }
 `;
