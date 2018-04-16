@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import NewBagPost from './NewBagPost'
 import EditBag from './EditBag'
 
+
 const BagWrapper = styled.div`
 font-size: 14px;
 /* background-color: red; */
@@ -16,7 +17,6 @@ background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2
  
 const Background = styled.div`
 font-size: 14px;
-
 background-size: cover;`
 
 

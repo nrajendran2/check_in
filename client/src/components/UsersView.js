@@ -3,21 +3,29 @@ import axios from 'axios'
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
 
-const FullPage = styled.div `
+
+const UserContainer = styled.div`
 display:flex;
-flex-wrap: wrap;
+justify-content: space-around;
+`
+
+
+const FullPage = styled.div `
 justify-content:space-around; 
+background-color: white;
+
+
 
 `
 
 const ProfileImage = styled.img `
 height: 200px;
 max-width: 200px;
-display: flex;
-flex-wrap: wrap;
-flex-direction:row;
+display:inline-block;
+justify-content: space-around;
 border-radius: 50%;
 background-color: white;
+border: solid;
 `
 
 const ProfileName = styled.div `
@@ -28,7 +36,20 @@ font-size: 20px;
 justify-content: space-around; 
  flex-direction: row; 
 `
-
+const EachProfile = styled.div`
+display: block;
+width: 20vw;
+margin: 20px auto;
+a{
+    margin: auto;
+}
+.name{
+    justify-content: center;
+    margin:0 auto;
+    }
+    
+    
+    `
 class UsersView extends Component {
     state = {
         users: ['hkhkhk'],
@@ -56,9 +77,11 @@ class UsersView extends Component {
         return (
 
             <FullPage>
-                <div>
+                
 
                     <h1>Users</h1>
+
+                    <UserContainer>
 
                     {this
                         .state
@@ -66,22 +89,26 @@ class UsersView extends Component {
                         .map((user) => {
                             return (
 
-                                <div>
+                                <EachProfile>
+
+                                    <div>
+                                        <ProfileImage src={user.photo_url}/>
+                                   
 
                                     
-
-                                        <ProfileImage src={user.photo_url}/>
                                         <Link to={`/users/${user.id}`}>
+
                                             <ProfileName>{user.name}</ProfileName>
                                         </Link>
 
-                                   
-                                </div>
+                                  </div>
+                            
+                                </EachProfile>
 
                             )
                         })}
-
-                </div>
+                         </UserContainer>
+                
             </FullPage>
         );
     }

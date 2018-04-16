@@ -3,15 +3,11 @@ import {Form, Button, TextArea, Icon, Card} from "semantic-ui-react";
 import styled from "styled-components";
 import axios from 'axios'
 
-
 const FormWrapper = styled.div`
 font-size: 10px;
 padding: 30px;
 
 `
-
-
-
 
 class NewBagPost extends Component {
     state = {
@@ -35,9 +31,12 @@ class NewBagPost extends Component {
 
     createNewBag = async event => {
         event.preventDefault();
-        let letbagId = this.props.bags.map((bag) => {
-            return bag.id
-        })
+        let letbagId = this
+            .props
+            .bags
+            .map((bag) => {
+                return bag.id
+            })
         const bagId = letbagId[0]
         console.log(bagId)
         const bagload = {
@@ -46,59 +45,89 @@ class NewBagPost extends Component {
             fragile: this.state.new.fragile,
             airline: this.state.new.airline,
             confirmationId: this.state.new.confirmationId
-            
 
         };
-    
+
         await axios.post(`/api/users/${this.props.userId}/bags/`, bagload)
-        // await axios.post(`/api/users/${this.props.userId}/bags/${bagId}/flights`, flightload)
-        this.props.getAllBags()
+        // await axios.post(`/api/users/${this.props.userId}/bags/${bagId}/flights`,
+        // flightload)
+        this
+            .props
+            .getAllBags()
         // this.props.getAllBags()
     }
 
     render() {
         return (
-            <div>
-                <FormWrapper>
-                <Form onSubmit={this.createNewBag}>
-                    <Form.Input
-                        className="inputs"
-                        name="bagname"
-                        onChange={this.handleChange}
-                        type="text"
-                        placeholder="Name of Bag"
-                        value={this.state.bagname}
-                        required/>
-                    <Form.Input
-                        className="input"
-                        placeholder="Enter Weight"
-                        name="weight"
-                        onChange={this.handleChange}
-                        value={this.state.weight}/>
+            
+            <h1>Add Bags</h1>
+            <Form onSubmit={this.createNewBag}/>
 
-                    { <Form.Input
-                        className="input"
-                        placeholder="fragile"
-                        name="fragile"
-                        onChange={this.handleChange}
-                        value={this.state.fragile}/> }
+                <div>
+
+                <FormWrapper>
                     
-                        
-                        {/* <ButtonWrap> */}
-                {/* <Button animated color="green" type="submit">
-                  <Button.Content visible>Post Comment</Button.Content>
-                  <Button.Content hidden>
-                    <Icon name="comments" />
-                  </Button.Content>
-                </Button>
-              </ButtonWrap> */}
-              <button>Submit</button>
-                </Form> 
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input className="inputs"
+                            name="bagname"
+                            onChange={this.handleChange}
+                            type="text"
+                            placeholder="Name of Bag"
+                            value={this.state.bagname}
+                            required/>  
+                                    <label for="name">Name</label>
+                                </div>
+                               
+                            </div>
+
+                             <div class="input-field col s7">
+                                    <input className="input"
+                            placeholder="Enter Weight"
+                            name="weight"
+                            type="text"
+                            onChange={this.handleChange}
+                            value={this.state.weight}/>
+                                   
+                                </div>
+                           
+                          
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input className = "input"
+                        placeholder = "fragile"
+                        name = "fragile"
+                        onChange = {
+                            this.handleChange
+                        }
+                        value = {
+                            this.state.fragile
+                        } />
+                                  <label for="email">Fragile</label>
+                                </div>
+                            </div>
+                          
+                        </form>
+                    </div>
+
+                    <button>Submit</button>
+
                 </FormWrapper>
 
             </div>
-        );
+        )
     }
 }
 
 export default NewBagPost;
+
+
+
+                        
+
+
+
+                        
+                                                
