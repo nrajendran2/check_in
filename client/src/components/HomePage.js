@@ -57,7 +57,7 @@ class HomePage extends Component {
 
 <Links>
     <h1><Link to="/users/">Users</Link></h1>
-    <h1><Link to="/map">Track Bags</Link></h1>
+
 
     </Links>
           

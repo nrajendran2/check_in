@@ -5,9 +5,11 @@ import axios from 'axios'
 
 const FormWrapper = styled.div`
 font-size: 10px;
-padding: 30px;
-
+justify-content: center;
 `
+
+
+
 
 class NewBagPost extends Component {
     state = {
@@ -57,16 +59,18 @@ class NewBagPost extends Component {
         // this.props.getAllBags()
     }
 
-    render() {
+    render() { 
         return (
             
-            <h1>Add Bags</h1>
-            <Form onSubmit={this.createNewBag}/>
+            <div>
+
+            <h2>Add Bags</h2>
+            
 
                 <div>
 
                 <FormWrapper>
-                    
+                <Form onSubmit={this.createNewBag}>
                     <div class="row">
                         <form class="col s12">
                             <div class="row">
@@ -75,7 +79,8 @@ class NewBagPost extends Component {
                             name="bagname"
                             onChange={this.handleChange}
                             type="text"
-                            placeholder="Name of Bag"
+                            placeholder="Name of Bag Owner"
+                            id = "inputline"
                             value={this.state.bagname}
                             required/>  
                                     <label for="name">Name</label>
@@ -88,6 +93,7 @@ class NewBagPost extends Component {
                             placeholder="Enter Weight"
                             name="weight"
                             type="text"
+                            id = "inputline"
                             onChange={this.handleChange}
                             value={this.state.weight}/>
                                    
@@ -98,6 +104,7 @@ class NewBagPost extends Component {
                                 <div class="input-field col s12">
                                     <input className = "input"
                         placeholder = "fragile"
+                        id = "inputline"
                         name = "fragile"
                         onChange = {
                             this.handleChange
@@ -105,7 +112,7 @@ class NewBagPost extends Component {
                         value = {
                             this.state.fragile
                         } />
-                                  <label for="email">Fragile</label>
+                                 
                                 </div>
                             </div>
                           
@@ -113,10 +120,15 @@ class NewBagPost extends Component {
                     </div>
 
                     <button>Submit</button>
+                </Form>
 
                 </FormWrapper>
 
+
             </div>
+            </div>
+        
+            
         )
     }
 }

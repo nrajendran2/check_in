@@ -7,7 +7,7 @@ import EditBag from './EditBag'
 
 
 const BagWrapper = styled.div`
-font-size: 14px;
+font-size: 10px;
 /* background-color: red; */
 background-size: cover;
 background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1511281122%2Fflight-landing-INBNDCHECK1117.jpg%3Fitok%3DrlElho3R&w=700&q=85");
@@ -16,14 +16,15 @@ background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2
 
  
 const Background = styled.div`
-font-size: 14px;
-background-size: cover;`
+font-size: 8px;
+color: black;
+`
 
 
 
  
 const FullPage = styled.div`
-font-size: 14px;
+font-size: 8px;
 
 background-size: cover;`
 
