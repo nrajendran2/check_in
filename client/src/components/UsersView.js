@@ -40,15 +40,15 @@ justify-content: space-around;
 const EachProfile = styled.div`
 display: block;
 width: 20vw;
-margin: 20px auto;
+margin:     20px auto;
 a{
     margin: auto;
-}
+}r
 .name{
     justify-content: center;
     margin:0 auto;
     }
-    
+
     
     `
 class UsersView extends Component {

@@ -73,7 +73,7 @@ state = {
  <Route exact path="/" render={HomePageWrapper} />
   <Route exact path="/users" component={UsersView} />
   <Route exact path="/users/:id" component={ShowView} />
-  <Route exact path="/map" component={MapView} />
+ x
  
     
 

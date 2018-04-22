@@ -57,11 +57,11 @@ const NavLinkWrap = styled.div`
   }  
   }
   a.white-letter {
-    color: purple;
+    color: black;
   }
   a {
     text-align: center;
-    color: black;
+    color: white;
     a:visited {
       color: lightgray;
     }
@@ -70,6 +70,8 @@ const NavLinkWrap = styled.div`
     margin: 0 12px;
   }
 `;
+
+
 class Navbar extends Component {
   render() {
     return (
@@ -81,15 +83,21 @@ class Navbar extends Component {
           <h1>{!this.props.city_name ? null : this.props.city_name}</h1>
         </LogoWrap>
         <NavLinkWrap>
-          <Button fluid color="purple=" className="inner-nav">
+          <Button fluid color="black=" className="inner-nav">
             <Link className="white-letter" to="/">
               Login
             </Link>
           </Button>
-          <Button fluid color="purple" className="inner-nav white-letter" onClick={this.props.toggleShowLogin}>
+          <Button fluid color="black" className="inner-nav white-letter" onClick={this.props.toggleShowLogin}>
             Sign Up
           </Button>
-          <Menu color="purple" compact>
+          <Menu color="black" compact>
+         
+    <h5><Link to="/users/">Users</Link></h5>
+
+
+  
+          
         
           </Menu>
         </NavLinkWrap>

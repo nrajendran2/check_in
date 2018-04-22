@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const LandingWrap = styled.div`
-  background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1511281122%2Fflight-landing-INBNDCHECK1117.jpg%3Fitok%3DrlElho3R&w=700&q=85");
+  background-image: url("https://i.imgur.com/z7C5BnE.jpg");
   background-size: cover;
   z-index: -9;
   position: fixed;
@@ -17,14 +17,14 @@ const LandingWrap = styled.div`
     position: fixed;
     top: 20vh;
     color: white;
-    margin-top:  15vw;
+    margin-top:  25vw;
     margin-left: 20vw;
     background-color: #88888875;
     border-bottom: 1px solid purple;
     border-top: 1px solid purple;
     padding: 1em 2em;
     span {
-      font-family: "Permanent Marker", cursive;
+      font-family: 'Faster One', cursive;
     }
     @media (max-width: 510px) {
     top: 56vh;
@@ -37,6 +37,7 @@ const LandingWrap = styled.div`
 const Links = styled.div`
 display:flex;
 justify-content: space-around;
+margin-right: 200px;
 
 
 `
@@ -58,7 +59,7 @@ class HomePage extends Component {
             </div>
 
 <Links>
-    <h1><Link to="/users/">Users</Link></h1>
+    {/* <h1><Link to="/users/">Users</Link></h1> */}
 
 
     </Links>
